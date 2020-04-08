@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Adding an event listener</title>
+        <style>
+
+
+        .footer{
+       position: fixed;
+       text-align: center;
+       bottom: 0px;
+       width: 100%;
+   }
+
+
+
+
+        #animate {
+  width: 500px;
+  height: 250px;
+  position: absolute;
+  background-color: red;
+  background-image: url("siseweb.jpg");
+}
+
+<p id="demo"></p>
+
+
+
+        .wrapper {
+    text-align: center;
+}
+.smjesni {
+    position: absolute;
+    top: 50%;
+    left:20%;
+   font: 30px Arial, sans-serif;
+}
+
+
+
+
+
+.clicker {
+    position: absolute;
+    top: 50%;
+    left:50%;
+}
+        </style>
+    </head>
+    <body>
+
+    <h1></h1>
+
+
+
+    <div class="wrapper">
+<button class="clicker"onclick="myMove()" Id="clicker">Klikni me</button></div>
+
+
+  <div id ="animate"></div>
+
+    <script>
+     animate.style.display = "none";
+ var pmax = 500;
+ var pmin= 30;
+ var inc =2;
+  var clickerButton = document.getElementById("clicker");
+
+   var onButtonClick = function() {
+      animate.style.display = "block";
+        clickerButton.textContent = "Oh wow, you clicked me!";
+        clickerButton.style.display="none";
+        MyMove();
+    };
+   // 1. Find and store the element we want to listen to events on.
+    // 2. Define the function that will respond to the event.
+
+    clickerButton.addEventListener("click", onButtonClick);
+
+
+    // 3. Add the event listener for the element and function
+
+
+
+
+
+    function myMove() {
+  var elem = document.getElementById("animate");
+  var pos = pmin;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == pmax) {
+    myMove2() ;
+      clearInterval(id);
+    } else {
+      pos=pos+inc;
+
+      elem.style.top = pos + "px";
+      elem.style.left = pos + "px";
+    }
+  }
+}
+
+
+function myMove2() {
+  var elem = document.getElementById("animate");
+  var pos = pmax;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == pmin) {
+    myMove3();
+      clearInterval(id);
+    } else {
+      pos=pos-inc;
+
+      elem.style.top = pos + "px";
+      elem.style.left = pos + "px";
+    }
+  }
+}
+
+function myMove3() {
+  var elem = document.getElementById("animate");
+  var pos = pmin;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == pmax) {
+    myMove4() ;
+      clearInterval(id);
+    } else {
+      pos=pos+inc;
+
+      elem.style.top = pos + "px";
+
+    }
+  }
+}
+
+function myMove4() {
+  var elem = document.getElementById("animate");
+  var pos = pmax;
+  var posw=pmin;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == pmin) {
+    myMove5();
+      clearInterval(id);
+    } else {
+
+
+      pos=pos-inc;
+      posw=posw+inc;
+
+      elem.style.top = pos + "px";
+      elem.style.left = posw + "px";
+
+    }
+  }
+}
+
+
+function myMove5() {
+  var elem = document.getElementById("animate");
+  var pos = pmin;
+  var posw=pmax;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == pmax/2) {
+   mydisplay();
+      clearInterval(id);
+    } else {
+      pos=pos+inc;
+      posw=posw-inc;
+      elem.style.top = pos + "px";
+      elem.style.left = posw + "px";
+
+    }
+  }
+}
+
+
+
+
+ function mydisplay() {
+  var elem = document.getElementById("animate");
+  var pos = 0;
+
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 100) {
+      elem.style.display = "none"; }
+    if (pos == 200) {
+      elem.style.display = "block";  }
+
+if (pos == 300) {
+      elem.style.display = "none";}
+
+
+if (pos == 400) {
+      elem.style.display = "block";}
+
+ if (pos == 500) {
+      elem.style.display = "none";
+mydisplay2();
+
+    clearInterval(id);
+    } else {
+      pos++;
+
+
+
+    }
+  }
+}
+
+
+
+function mydisplay2(){
+
+document.getElementById("demo").innerHTML = "Za još smiješnih sadržaja preplatite se na banfic.nenad@gmail.com " ;
+
+
+}
+
+
+
+
+
+
+
+
+    </script>
+    <p class = smjesni id="demo"></p>
+
+
+        <div class="footer">©Nenad Banfić</div>
+
+    </body>
+</html>
